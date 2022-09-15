@@ -5,7 +5,7 @@
 [Spring Web](https://spring.io/guides/gs/serving-web-content/)  
 [es](https://elasticsearch.cn/explore)  
 [BootStrap](https://v3.bootcss.com/)  
-[Github OAuth]()
+[Github OAuth](https://docs.github.com/cn/developers/apps/building-oauth-apps/creating-an-oauth-app)
 ## 工具
-https://git-scm.com/downloads  
+[Git](https://git-scm.com/downloads)  
 
