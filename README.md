@@ -8,6 +8,7 @@
 [Github OAuth](https://docs.github.com/cn/developers/apps/building-oauth-apps/creating-an-oauth-app)
 [Mybatis](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)  
 [Spring Boot文档](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/htmlsingle/)  
+[flyway](https://flywaydb.org/documentation/getstarted/firststeps/maven)  
 
 
 ## 工具
@@ -25,4 +26,7 @@
     )
     
 
+```
+```bash
+mvn flyway:migrate
 ```

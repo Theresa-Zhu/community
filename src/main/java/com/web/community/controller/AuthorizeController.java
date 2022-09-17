@@ -45,7 +45,7 @@ public class AuthorizeController {
         accessTokenDTO.setRedirect_url(redirectUri);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        if (githubUser != null){  //获取github的用户信息
+        if (githubUser != null && githubUser.getId() != null){  //获取github的用户信息
             //登录成功
             User user = new User();
             String token = UUID.randomUUID().toString();
