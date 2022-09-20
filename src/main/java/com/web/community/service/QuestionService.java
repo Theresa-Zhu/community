@@ -47,7 +47,7 @@ public class QuestionService {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questionList) {
-            User user =   userMapper.findById(question.getCreator());
+            User user =   userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO =  new QuestionDTO();
             BeanUtils.copyProperties(question,questionDTO); //可以免去各种getset
             questionDTO.setUser(user);
@@ -83,7 +83,7 @@ public class QuestionService {
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
         for (Question question : questionList) {
-            User user =   userMapper.findById(question.getCreator());
+            User user =   userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO =  new QuestionDTO();
             BeanUtils.copyProperties(question,questionDTO); //可以免去各种getset
             questionDTO.setUser(user);
@@ -91,5 +91,27 @@ public class QuestionService {
         }
         paginationDTO.setQuestions(questionDTOList);
         return paginationDTO;
+    }
+
+    public QuestionDTO getById(Integer id) {
+        Question question = questionMapper.getById(id);
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question,questionDTO);
+        User user = userMapper.selectByPrimaryKey(question.getCreator());
+        questionDTO.setUser(user);
+        return questionDTO;
+    }
+
+    public void createOrUpdate(Question question) {
+        if (question.getId() == null){
+            //创建
+            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.create(question);
+        }else {
+            //更新
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.update(question);
+        }
     }
 }
