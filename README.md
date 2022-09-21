@@ -10,7 +10,7 @@
 [Mybatis](http://mybatis.org/spring-boot-starter/mybatis-spring-boot-autoconfigure/)  
 [Spring Boot文档](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/htmlsingle/)  
 [thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-attribute-values)  
-
+[MyBatis Generator](http://mybatis.org/generator/index.html)  
 
 
 ## 工具
