@@ -1,5 +1,4 @@
 package com.web.community.service;
-import com.web.community.dto.CommentDTO;
 import com.web.community.dto.PaginationDTO;
 import com.web.community.dto.QuestionDTO;
 import com.web.community.exception.CustomizeErrorCode;
@@ -65,7 +64,7 @@ public class QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
         return paginationDTO;
     }
 
@@ -106,7 +105,7 @@ public class QuestionService {
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
-        paginationDTO.setQuestions(questionDTOList);
+        paginationDTO.setData(questionDTOList);
         return paginationDTO;
     }
 
@@ -157,6 +156,7 @@ public class QuestionService {
         questionExtMapper.incView(question);
     }
 
+    //相关问题
     public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
         if (StringUtils.isBlank(queryDTO.getTag())){
             return new ArrayList<>();

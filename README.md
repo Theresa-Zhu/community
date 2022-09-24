@@ -11,12 +11,15 @@
 [Spring Boot文档](https://docs.spring.io/spring-boot/docs/2.0.0.RC2/reference/htmlsingle/)  
 [thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#setting-attribute-values)  
 [MyBatis Generator](http://mybatis.org/generator/index.html)  
+[editor.md](https://pandao.github.io/editor.md/examples/index.html)  
+
 
 
 ## 工具
 [Git](https://git-scm.com/downloads)   
 [lombok](https://projectlombok.org/setup/maven)  
 [flyway](https://flywaydb.org/documentation/getstarted/firststeps/maven)  
+[富文本编辑器](https://github.com/pandao/editor.md)  
 
 ##脚本
 ```sql
