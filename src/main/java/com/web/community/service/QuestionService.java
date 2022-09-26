@@ -1,6 +1,7 @@
 package com.web.community.service;
 import com.web.community.dto.PaginationDTO;
 import com.web.community.dto.QuestionDTO;
+import com.web.community.dto.QuestionQueryDTO;
 import com.web.community.exception.CustomizeErrorCode;
 import com.web.community.exception.CustomizeException;
 import com.web.community.mapper.QuestionExtMapper;
@@ -29,13 +30,21 @@ public class QuestionService {
 
     @Autowired
     private QuestionExtMapper questionExtMapper;
+
     //分页
-    public PaginationDTO list(Integer page, Integer size) {
+    public PaginationDTO list(String search,Integer page, Integer size) {
+        if (StringUtils.isNotBlank(search)){
+            String[] tags = StringUtils.split(search," ");
+            search = Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
+
         PaginationDTO paginationDTO =  new PaginationDTO();
         Integer totalPage;
 
         //总记录
-        Integer totalCount = (int)questionMapper.countByExample(new QuestionExample());
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
         if (totalCount % size == 0){  //总页数能装满所有条目
             totalPage = totalCount / size;
         }else {  //装不完，加多一页
@@ -53,7 +62,9 @@ public class QuestionService {
         Integer offset = size * (page - 1); //偏移量
         QuestionExample questionExample = new QuestionExample();
         questionExample.setOrderByClause("gmt_create desc");
-        List<Question> questionList = questionMapper.selectByExampleWithRowbounds(questionExample,new RowBounds(offset,size));
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+        List<Question> questionList = questionExtMapper.selectBySearch(questionQueryDTO);
         //最终展示的数据
         List<QuestionDTO> questionDTOList = new ArrayList<>();
 
