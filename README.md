@@ -1,5 +1,27 @@
 ## 码匠社区
 
+##部署
+###依赖
+-Git    
+-JDK  
+-Maven  
+-MySQL  
+
+##步骤
+-yum update  
+-[Failed to download metadata for repo ‘appstream‘: Cannot prepare internal mirrorlist的解决方法](https://blog.csdn.net/qq_575775600/article/details/125274121)  
+-yum install git  
+-在根目录/root下 mkdir App  
+-cd App  
+-git clone https://github.com/Theresa-Zhu/community.git  
+- 在commmunity文件下 yum install maven  
+-mvn -v  
+-cp src/main/resources/application.properties src/main/resources/application-production.properties  
+-vim src/main/resources/application-production.properties  
+
+
+
+
 ##资料
 [Spring 文档](https://spring.io/guides)  
 [Spring Web](https://spring.io/guides/gs/serving-web-content/)  
